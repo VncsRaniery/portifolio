@@ -1,101 +1,158 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useState } from "react";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  House,
+  User,
+  GraduationCap,
+  Award,
+  Code,
+  FolderGit2,
+  Github,
+  Mail,
+  Menu,
+} from "lucide-react";
+
+const navItems = [
+  { name: "Home", icon: House },
+  { name: "Sobre", icon: User },
+  { name: "Educação", icon: GraduationCap },
+  { name: "Certificados", icon: Award },
+  { name: "Skills", icon: Code },
+  { name: "Projetos", icon: FolderGit2 },
+  { name: "Github Status", icon: Github },
+  { name: "Contato", icon: Mail },
+];
+
+export default function Page() {
+  const [activeSection, setActiveSection] = useState("Home");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const renderNavigation = () => (
+    <nav className="space-y-2">
+      {navItems.map((item) => {
+        const Icon = item.icon;
+        return (
+          <Button
+            key={item.name}
+            variant="ghost"
+            className={`w-full justify-start ${
+              activeSection === item.name
+                ? "text-white bg-white/10"
+                : "text-white/70 hover:text-white hover:bg-zinc-800/50"
+            }`}
+            onClick={() => {
+              setActiveSection(item.name);
+              setIsMenuOpen(false);
+            }}
+          >
+            <Icon className="mr-2 h-4 w-4" />
+            {item.name}
+          </Button>
+        );
+      })}
+    </nav>
+  );
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="min-h-screen bg-black flex items-center justify-center p-4 relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-500 rounded-full filter blur-[200px] opacity-20" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-blue-500 rounded-full filter blur-[200px] opacity-20" />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <Card className="w-full max-w-[1400px] h-[750px] bg-zinc-900/30 backdrop-blur-xl rounded-2xl overflow-hidden border-0 shadow-2xl">
+        <div className="p-4 flex items-center bg-zinc-900/50 border-b border-zinc-700/30">
+          <div className="flex gap-2">
+            <div className="w-3 h-3 rounded-full bg-[#FF5F57]" />
+            <div className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
+            <div className="w-3 h-3 rounded-full bg-[#28C840]" />
+          </div>
+
+          <div className="flex-1 flex justify-center items-center gap-6">
+            <span className="text-white/90 text-base font-medium">
+              {activeSection === "Home"
+                ? "Portifolio"
+                : `Portifolio - ${activeSection}`}
+            </span>
+          </div>
+
+          <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="lg:hidden">
+                <Menu className="h-5 w-5 text-white/60" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent
+              side="left"
+              className="w-[300px] sm:w-[400px] bg-zinc-900/95 border-zinc-700/30"
+            >
+              <div className="py-6">
+                <div className="flex items-center mb-8">
+                  <Avatar className="w-16 h-16 mr-4">
+                    <AvatarImage
+                      src="https://github.com/shadcn.png"
+                      alt="@shadcn"
+                    />
+                    <AvatarFallback>JD</AvatarFallback>
+                  </Avatar>
+                  <div className="text-left">
+                    <h2 className="text-xl font-semibold text-white">
+                      John Doe
+                    </h2>
+                    <p className="text-sm text-white/60">@johndoe</p>
+                  </div>
+                </div>
+                {renderNavigation()}
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <div className="flex h-[calc(100%-60px)]">
+          <div className="w-[450px] border-r border-zinc-700/30 hidden lg:block">
+            <ScrollArea className="h-full">
+              <div className="p-6">
+                <div className="flex items-center mb-8">
+                  <Avatar className="w-16 h-16 mr-4">
+                    <AvatarImage
+                      src="https://github.com/shadcn.png"
+                      alt="@shadcn"
+                    />
+                    <AvatarFallback>JD</AvatarFallback>
+                  </Avatar>
+                  <div className="text-left">
+                    <h2 className="text-xl font-semibold text-white">
+                      John Doe
+                    </h2>
+                    <p className="text-sm text-white/60">@johndoe</p>
+                  </div>
+                </div>
+
+                {renderNavigation()}
+              </div>
+            </ScrollArea>
+          </div>
+
+          <div className="flex-1 overflow-hidden">
+            <ScrollArea className="h-full">
+              <div className="flex flex-col items-center justify-center p-12 min-h-full">
+                {activeSection === "Home"}
+                {activeSection === "Sobre"}
+                {activeSection === "Educação"}
+                {activeSection === "Certificados"}
+                {activeSection === "Skills"}
+                {activeSection === "Projetos"}
+                {activeSection === "Github Status"}
+                {activeSection === "Contato"}
+              </div>
+            </ScrollArea>
+          </div>
+        </div>
+      </Card>
     </div>
   );
 }
