@@ -17,6 +17,7 @@ import {
   Mail,
   Menu,
 } from "lucide-react";
+import Home from "@/components/Home";
 
 const navItems = [
   { name: "Home", icon: House },
@@ -140,7 +141,7 @@ export default function Page() {
           <div className="flex-1 overflow-hidden">
             <ScrollArea className="h-full">
               <div className="flex flex-col items-center justify-center p-12 min-h-full">
-                {activeSection === "Home"}
+                {activeSection === "Home" && <Home />}
                 {activeSection === "Sobre"}
                 {activeSection === "Educação"}
                 {activeSection === "Certificados"}
