@@ -20,6 +20,7 @@ import {
 import Home from "@/components/Home";
 import About from "@/components/Sobre";
 import Education from "@/components/Education";
+import Certificates from "@/components/Certificados";
 
 const navItems = [
   { name: "Home", icon: House },
@@ -146,7 +147,7 @@ export default function Page() {
                 {activeSection === "Home" && <Home />}
                 {activeSection === "Sobre" && <About />}
                 {activeSection === "Educação" && <Education />}
-                {activeSection === "Certificados"}
+                {activeSection === "Certificados" && <Certificates />}
                 {activeSection === "Skills"}
                 {activeSection === "Projetos"}
                 {activeSection === "Github Status"}
