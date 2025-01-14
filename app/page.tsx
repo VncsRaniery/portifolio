@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import Home from "@/components/Home";
 import About from "@/components/Sobre";
+import Education from "@/components/Education";
 
 const navItems = [
   { name: "Home", icon: House },
@@ -144,7 +145,7 @@ export default function Page() {
               <div className="flex flex-col items-center justify-center p-12 min-h-full">
                 {activeSection === "Home" && <Home />}
                 {activeSection === "Sobre" && <About />}
-                {activeSection === "Educação"}
+                {activeSection === "Educação" && <Education />}
                 {activeSection === "Certificados"}
                 {activeSection === "Skills"}
                 {activeSection === "Projetos"}
