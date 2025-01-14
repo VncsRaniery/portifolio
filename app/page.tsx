@@ -13,7 +13,6 @@ import {
   Award,
   Code,
   FolderGit2,
-  Github,
   Mail,
   Menu,
 } from "lucide-react";
@@ -32,7 +31,6 @@ const navItems = [
   { name: "Certificados", icon: Award },
   { name: "Skills", icon: Code },
   { name: "Projetos", icon: FolderGit2 },
-  { name: "Github Status", icon: Github },
   { name: "Contato", icon: Mail },
 ];
 
@@ -153,7 +151,6 @@ export default function Page() {
                 {activeSection === "Certificados" && <Certificates />}
                 {activeSection === "Skills" && <Skills />}
                 {activeSection === "Projetos" && <Projects />}
-                {activeSection === "Github Status"}
                 {activeSection === "Contato" && <Contact />}
               </div>
             </ScrollArea>
