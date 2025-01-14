@@ -23,6 +23,7 @@ import Education from "@/components/Education";
 import Certificates from "@/components/Certificados";
 import Contact from "@/components/Contato";
 import Projects from "@/components/Projetos";
+import Skills from "@/components/Habilidades";
 
 const navItems = [
   { name: "Home", icon: House },
@@ -150,7 +151,7 @@ export default function Page() {
                 {activeSection === "Sobre" && <About />}
                 {activeSection === "Educação" && <Education />}
                 {activeSection === "Certificados" && <Certificates />}
-                {activeSection === "Skills"}
+                {activeSection === "Skills" && <Skills />}
                 {activeSection === "Projetos" && <Projects />}
                 {activeSection === "Github Status"}
                 {activeSection === "Contato" && <Contact />}
