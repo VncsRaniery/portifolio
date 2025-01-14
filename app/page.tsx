@@ -18,6 +18,7 @@ import {
   Menu,
 } from "lucide-react";
 import Home from "@/components/Home";
+import About from "@/components/Sobre";
 
 const navItems = [
   { name: "Home", icon: House },
@@ -142,7 +143,7 @@ export default function Page() {
             <ScrollArea className="h-full">
               <div className="flex flex-col items-center justify-center p-12 min-h-full">
                 {activeSection === "Home" && <Home />}
-                {activeSection === "Sobre"}
+                {activeSection === "Sobre" && <About />}
                 {activeSection === "Educação"}
                 {activeSection === "Certificados"}
                 {activeSection === "Skills"}
