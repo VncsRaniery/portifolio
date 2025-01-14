@@ -21,6 +21,7 @@ import Home from "@/components/Home";
 import About from "@/components/Sobre";
 import Education from "@/components/Education";
 import Certificates from "@/components/Certificados";
+import Contact from "@/components/Contato";
 
 const navItems = [
   { name: "Home", icon: House },
@@ -151,7 +152,7 @@ export default function Page() {
                 {activeSection === "Skills"}
                 {activeSection === "Projetos"}
                 {activeSection === "Github Status"}
-                {activeSection === "Contato"}
+                {activeSection === "Contato" && <Contact />}
               </div>
             </ScrollArea>
           </div>
