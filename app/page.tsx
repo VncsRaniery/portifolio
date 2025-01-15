@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -23,6 +23,7 @@ import Certificates from "@/components/Certificados";
 import Contact from "@/components/Contato";
 import Projects from "@/components/Projetos";
 import Skills from "@/components/Habilidades";
+import { fetchGitHubProfile } from "./api/github/githubAPI-profile";
 
 const navItems = [
   { name: "Home", icon: House },
@@ -37,6 +38,24 @@ const navItems = [
 export default function Page() {
   const [activeSection, setActiveSection] = useState("Home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [githubProfile, setGithubProfile] = useState({
+    name: "",
+    username: "",
+    avatarUrl: "",
+  });
+
+  useEffect(() => {
+    async function loadProfile() {
+      try {
+        const profile = await fetchGitHubProfile("VncsRaniery");
+        setGithubProfile(profile);
+      } catch (error) {
+        console.error("Erro ao buscar perfil do GitHub:", error);
+      }
+    }
+
+    loadProfile();
+  }, []);
 
   const renderNavigation = () => (
     <nav className="space-y-2">
@@ -99,16 +118,26 @@ export default function Page() {
                 <div className="flex items-center mb-8">
                   <Avatar className="w-16 h-16 mr-4">
                     <AvatarImage
-                      src="https://github.com/shadcn.png"
-                      alt="@shadcn"
+                      src={
+                        githubProfile.avatarUrl ||
+                        "https://github.com/shadcn.png"
+                      }
+                      alt={`@${githubProfile.username}`}
                     />
-                    <AvatarFallback>JD</AvatarFallback>
+                    <AvatarFallback>
+                      {githubProfile.name
+                        .split(" ")
+                        .map((word) => word[0])
+                        .join("")}
+                    </AvatarFallback>
                   </Avatar>
                   <div className="text-left">
                     <h2 className="text-xl font-semibold text-white">
-                      John Doe
+                      {githubProfile.name}
                     </h2>
-                    <p className="text-sm text-white/60">@johndoe</p>
+                    <p className="text-sm text-white/60">
+                      @{githubProfile.username}
+                    </p>
                   </div>
                 </div>
                 {renderNavigation()}
@@ -124,19 +153,28 @@ export default function Page() {
                 <div className="flex items-center mb-8">
                   <Avatar className="w-16 h-16 mr-4">
                     <AvatarImage
-                      src="https://github.com/shadcn.png"
-                      alt="@shadcn"
+                      src={
+                        githubProfile.avatarUrl ||
+                        "https://github.com/shadcn.png"
+                      }
+                      alt={`@${githubProfile.username}`}
                     />
-                    <AvatarFallback>JD</AvatarFallback>
+                    <AvatarFallback>
+                      {githubProfile.name
+                        .split(" ")
+                        .map((word) => word[0])
+                        .join("")}
+                    </AvatarFallback>
                   </Avatar>
                   <div className="text-left">
                     <h2 className="text-xl font-semibold text-white">
-                      John Doe
+                      {githubProfile.name}
                     </h2>
-                    <p className="text-sm text-white/60">@johndoe</p>
+                    <p className="text-sm text-white/60">
+                      @{githubProfile.username}
+                    </p>
                   </div>
                 </div>
-
                 {renderNavigation()}
               </div>
             </ScrollArea>
