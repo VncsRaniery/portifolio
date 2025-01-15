@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1 align="start">
+  Portfólio Pessoal
+</h1>
 
-## Getting Started
+<img width="1280" alt="Banner Portfólio" src="/public/assets/Banner.png">
 
-First, run the development server:
+## Introdução
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Este é o meu **Portfólio Pessoal**, desenvolvido com o objetivo de apresentar meu projetos de programação, explorar tecnologias modernas e realizar integrações com APIs.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Destaques do projeto:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Design elegante e responsivo:** Construído utilizando [TailwindCSS](https://tailwindcss.com/) e componentes acessíveis do [Shadcn UI](https://ui.shadcn.dev/).
+- **Código limpo e escalável:** Estruturado com boas práticas para facilitar a manutenção e extensibilidade.
+- **Integrações dinâmicas:** Integração com APIs externas para funcionalidades adicionais.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Tecnologias Utilizadas
 
-To learn more about Next.js, take a look at the following resources:
+Este projeto utiliza as seguintes ferramentas e tecnologias:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **[Next.js](https://nextjs.org/):** Framework React que oferece **SSR**, **rotas dinâmicas** e **otimização de desempenho**.
+- **[TailwindCSS](https://tailwindcss.com/):** Framework CSS utilitário para **estilização rápida** e **design responsivo**.
+- **[Shadcn UI](https://ui.shadcn.dev/):** Conjunto de componentes acessíveis e personalizáveis, garantindo **interfaces intuitivas e consistentes**.
+- **[Framer Motion](https://www.framer.com/motion/):** Biblioteca para criar animações fluidas e interativas.
+- **[GitHub API](https://docs.github.com/en/rest):** Utilizada para obter dados dinâmicos sobre repositórios e contribuições.
+- **[Axios](https://axios-http.com/):** Biblioteca para realizar requisições HTTP de forma simplificada.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Configuração e Execução
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Siga os passos abaixo para configurar e executar o projeto em sua máquina local.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Pré-requisitos
+
+Certifique-se de ter as seguintes ferramentas instaladas no seu ambiente:
+
+- [Node.js](https://nodejs.org/)
+- [Git](https://git-scm.com/)
+- [npm](https://www.npmjs.com/), [Yarn](https://yarnpkg.com/), [pnpm](https://pnpm.io/) ou [Bun](https://bun.sh/)
+
+### Passos para rodar o projeto:
+
+1. **Clonar o repositório:**
+
+   ```bash
+   git clone https://github.com/VncsRaniery/portifolio
+   cd portifolio
+   ```
+
+2. **Instale as dependências:**
+   ```bash
+   npm install
+   ```
+
+3. **Execute o servidor de desenvolvimento:**
+   ```bash
+   npm run dev
+   ```
+
+3. **Abra seu navegador e navegue até http://localhost:3000 para ver o site em ação.**
+---
