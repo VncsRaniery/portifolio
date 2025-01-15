@@ -90,8 +90,8 @@ export default function Contact() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-500 to-purple-500 
-                       hover:from-blue-600 hover:to-purple-600 h-12 text-lg
+                className="w-full bg-gradient-to-r from-blue-500 to-green-500 
+                       hover:from-blue-600 hover:to-green-600 h-12 text-lg
                        disabled:opacity-50 disabled:cursor-not-allowed
                        transition-all duration-300 ease-in-out transform hover:scale-[1.02]"
               >

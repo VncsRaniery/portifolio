@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { GraduationCap } from 'lucide-react'
+import { motion } from "framer-motion";
+import { GraduationCap } from "lucide-react";
 
 export default function Education() {
   const educationData = [
@@ -9,9 +9,10 @@ export default function Education() {
       degree: "Técnico em Informática",
       institution: "IF Goiano - Campus Campos Belos",
       year: "2021 - 2023",
-      description: "Formação com ênfase em redes, programação e suporte a sistemas e hardware."
+      description:
+        "Formação com ênfase em redes, programação e suporte a sistemas e hardware.",
     },
-  ]
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -21,7 +22,7 @@ export default function Education() {
         staggerChildren: 0.3,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, x: -50 },
@@ -33,7 +34,7 @@ export default function Education() {
         ease: "easeOut",
       },
     },
-  }
+  };
 
   return (
     <motion.div
@@ -51,17 +52,17 @@ export default function Education() {
       </motion.h2>
       <div className="relative border-l border-gray-700 ml-3">
         {educationData.map((edu, index) => (
-          <motion.div
-            key={index}
-            variants={itemVariants}
-            className="mb-8 ml-6"
-          >
+          <motion.div key={index} variants={itemVariants} className="mb-8 ml-6">
             <motion.span
-              className="flex absolute -left-3 justify-center items-center w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
+              className="flex absolute -left-3 justify-center items-center w-6 h-6 bg-gradient-to-r from-blue-500 to-green-500 rounded-full"
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.5 + index * 0.2, duration: 0.5, type: "spring" }}
+              transition={{
+                delay: 0.5 + index * 0.2,
+                duration: 0.5,
+                type: "spring",
+              }}
             >
               <span className="w-3 h-3 bg-zinc-900 rounded-full"></span>
             </motion.span>
@@ -76,12 +77,16 @@ export default function Education() {
               <p className="mb-2 text-base font-normal text-gray-300 flex items-center">
                 {edu.institution}
               </p>
-              <time className="block mb-2 text-sm font-normal leading-none text-gray-400">{edu.year}</time>
-              <p className="text-sm font-normal text-gray-400">{edu.description}</p>
+              <time className="block mb-2 text-sm font-normal leading-none text-gray-400">
+                {edu.year}
+              </time>
+              <p className="text-sm font-normal text-gray-400">
+                {edu.description}
+              </p>
             </motion.div>
           </motion.div>
         ))}
       </div>
     </motion.div>
-  )
+  );
 }

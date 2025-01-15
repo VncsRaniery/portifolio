@@ -32,12 +32,7 @@ export default function About() {
     "Banco de dados não relacionais (MongoDB)",
   ];
 
-  const frontendTechnologies = [
-    "Next.js",
-    "JavaScript",
-    "HTML",
-    "CSS",
-  ];
+  const frontendTechnologies = ["Next.js", "JavaScript", "HTML", "CSS"];
 
   return (
     <motion.div
