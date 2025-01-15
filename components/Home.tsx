@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
@@ -31,25 +29,6 @@ export default function Home() {
           soluções inovadoras e eficientes para a web. Explore minha jornada
           através de código, criatividade e tecnologias de ponta.
         </motion.p>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.6, duration: 0.5 }}
-        className="flex justify-center space-x-4"
-      >
-        <Button
-          className="bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600 text-white font-semibold py-2 px-6 rounded-full text-lg"
-          onClick={() =>
-            document
-              .getElementById("#projects")
-              ?.scrollIntoView({ behavior: "smooth" })
-          }
-        >
-          Visualize meus projetos
-          <ArrowRight className="ml-2 h-5 w-5" />
-        </Button>
       </motion.div>
 
       <motion.div
