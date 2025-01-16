@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
-import { Github, ExternalLink, Star, GitFork, AlertCircle } from "lucide-react";
+import { Github, ExternalLink, Star, GitFork, AlertCircle } from 'lucide-react';
 import { Skeleton } from "@/components/ui/skeleton";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -80,25 +80,25 @@ export default function Projects() {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="max-w-6xl mx-auto px-4"
+      className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
     >
-      <div className="space-y-8">
+      <div className="space-y-6 sm:space-y-8">
         <motion.div variants={itemVariants} className="text-center">
-          <h2 className="text-3xl font-bold text-white/90 mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white/90 mb-2 sm:mb-4">
             Meus Projetos
           </h2>
-          <p className="text-white/60 max-w-2xl mx-auto mb-8">
+          <p className="text-sm sm:text-base text-white/60 max-w-2xl mx-auto mb-6 sm:mb-8">
             Uma coleção do meu trabalho, incluindo projetos de destaque,
             estudos, materiais e experimentos pessoais.
           </p>
         </motion.div>
 
         <motion.div variants={itemVariants} className="relative">
-          <nav className="flex justify-center items-center bg-gradient-to-r bg-zinc-800/50 rounded-full p-1 mb-8 overflow-x-auto">
+          <nav className="flex flex-wrap justify-center items-center bg-gradient-to-r bg-zinc-800/50 rounded-full p-1 mb-6 sm:mb-8 overflow-x-auto">
             {categories.map((category) => (
               <motion.button
                 key={category.value}
-                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors duration-200 relative ${
+                className={`px-3 py-1 text-xs sm:text-sm font-medium rounded-full transition-colors duration-200 relative m-1 ${
                   selectedCategory === category.value
                     ? "text-white"
                     : "text-white/70 hover:text-white"
@@ -127,7 +127,7 @@ export default function Projects() {
             initial="hidden"
             animate="visible"
             exit="hidden"
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6"
           >
             {isLoading ? (
               Array.from({ length: 4 }).map((_, i) => (
@@ -148,83 +148,72 @@ export default function Projects() {
                           height={300}
                           className="w-full h-48 object-cover"
                         />
-                        <motion.div
-                          className="absolute inset-0 bg-black/70 flex items-center justify-center opacity-0 
-                                    group-hover:opacity-100 transition-opacity duration-300"
-                          initial={{ opacity: 0 }}
-                          whileHover={{ opacity: 1 }}
-                        >
-                          <div className="flex space-x-4">
-                            <motion.a
-                              href={repo.htmlUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="bg-zinc-800/80 p-2 rounded-full text-white hover:text-blue-400 hover:bg-zinc-700/80 transition-all"
-                              whileHover={{ scale: 1.1 }}
-                              whileTap={{ scale: 0.9 }}
-                            >
-                              <Github className="w-6 h-6" />
-                            </motion.a>
-                            {repo.homepage && (
-                              <motion.a
-                                href={repo.homepage}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="bg-zinc-800/80 p-2 rounded-full text-white hover:text-blue-400 hover:bg-zinc-700/80 transition-all"
-                                whileHover={{ scale: 1.1 }}
-                                whileTap={{ scale: 0.9 }}
-                              >
-                                <ExternalLink className="w-6 h-6" />
-                              </motion.a>
-                            )}
-                          </div>
-                        </motion.div>
                       </div>
-                      <div className="p-6 space-y-4">
+                      <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
                         <div>
-                          <h3 className="text-xl font-semibold text-white/90 mb-2">
+                          <h3 className="text-lg sm:text-xl font-semibold text-white/90 mb-1 sm:mb-2">
                             {repo.name}
                           </h3>
-                          <p className="text-white/70 mb-4">
+                          <p className="text-sm text-white/70 mb-2 sm:mb-4">
                             {repo.description}
                           </p>
                         </div>
 
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap gap-1 sm:gap-2">
                           {repo.topics.map((tech, i) => (
                             <Badge
                               key={i}
                               variant="secondary"
-                              className="bg-zinc-700/50 text-white/70"
+                              className="bg-zinc-700/50 text-white/70 text-xs"
                             >
                               {tech}
                             </Badge>
                           ))}
                         </div>
 
-                        <div className="flex items-center space-x-4 pt-4 border-t border-zinc-700/30">
-                          <div className="flex items-center space-x-2 text-white/70">
-                            <Star className="w-4 h-4" />
-                            <span>{repo.stargazersCount || 0}</span>
+                        <div className="flex items-center space-x-4 pt-3 sm:pt-4 border-t border-zinc-700/30">
+                          <div className="flex items-center space-x-1 sm:space-x-2 text-white/70">
+                            <Star className="w-3 h-3 sm:w-4 sm:h-4" />
+                            <span className="text-xs sm:text-sm">{repo.stargazersCount || 0}</span>
                           </div>
-                          <div className="flex items-center space-x-2 text-white/70">
-                            <GitFork className="w-4 h-4" />
-                            <span>{repo.forksCount || 0}</span>
+                          <div className="flex items-center space-x-1 sm:space-x-2 text-white/70">
+                            <GitFork className="w-3 h-3 sm:w-4 sm:h-4" />
+                            <span className="text-xs sm:text-sm">{repo.forksCount || 0}</span>
                           </div>
                         </div>
                       </div>
                     </CardContent>
+                    <div className="absolute bottom-4 right-4 flex space-x-2">
+                      <a
+                        href={repo.htmlUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-zinc-800/80 p-2 rounded-full text-white hover:text-blue-400 hover:bg-zinc-700/80 transition-all"
+                      >
+                        <Github className="w-6 h-6" />
+                      </a>
+                      {repo.homepage && (
+                        <a
+                          href={repo.homepage}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-zinc-800/80 p-2 rounded-full text-white hover:text-blue-400 hover:bg-zinc-700/80 transition-all"
+                        >
+                          <ExternalLink className="w-6 h-6" />
+                        </a>
+                      )}
+                    </div>
                   </Card>
                 </motion.div>
               ))
             ) : (
               <motion.div
                 variants={itemVariants}
-                className="flex justify-center items-center w-full col-span-1 md:col-span-2"
+                className="flex justify-center items-center w-full col-span-1 sm:col-span-2"
               >
-                <Card className="bg-zinc-800/50 border-zinc-700/50 p-6 text-center flex flex-col items-center mt-4">
-                  <AlertCircle className="w-12 h-12 text-red-500 mb-4" />
-                  <p className="text-white/90 text-lg">
+                <Card className="bg-zinc-800/50 border-zinc-700/50 p-4 sm:p-6 text-center flex flex-col items-center mt-4">
+                  <AlertCircle className="w-8 h-8 sm:w-12 sm:h-12 text-red-500 mb-2 sm:mb-4" />
+                  <p className="text-white/90 text-base sm:text-lg">
                     Nenhum projeto foi encontrado!
                   </p>
                 </Card>

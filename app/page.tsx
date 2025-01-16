@@ -115,7 +115,7 @@ export default function Page() {
       <AnimatePresence>
         {isLoading && (
           <LoadingAnimation
-            name={githubProfile.username || "VncsRaniery"}
+            name={githubProfile.username || "@VncsRaniery"}
             onComplete={handleLoadingComplete}
           />
         )}

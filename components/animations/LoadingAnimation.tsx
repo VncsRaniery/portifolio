@@ -15,8 +15,8 @@ export default function LoadingAnimation({
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
-    const animationDuration = 2500;
-    const exitDuration = 1000;
+    const animationDuration = 3000;
+    const exitDuration = 1500;
 
     const timer = setTimeout(() => {
       setIsComplete(true);
