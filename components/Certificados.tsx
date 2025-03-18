@@ -8,17 +8,17 @@ export default function Certificates() {
   const certificates = [
     {
       name: "Fundamentos para Desenvolvimento de Software por Microsoft e LinkedIn",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/assets/placeholder.svg",
       issuer: "Microsoft e LinkedIn"
     },
     {
       name: "Fundamentos para Análise de Dados por Microsoft e LinkedIn",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/assets/placeholder.svg",
       issuer: "Microsoft"
     },
     {
       name: "Fundamentos para Desenvolvimento de Software por Microsoft e LinkedIn",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/assets/placeholder.svg",
       issuer: "Microsoft e LinkedIn"
     }
   ]
