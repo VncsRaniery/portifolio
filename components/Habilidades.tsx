@@ -3,58 +3,62 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import Image from "next/image";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import {
+  TypeScriptIcon,
+  JavaScriptIcon,
+  ReactIcon,
+  NextJsIcon,
+  NodeJsIcon,
+  PythonIcon,
+} from "./icons/TechIcons";
 
 export default function Skills() {
   const skills = [
     {
       name: "TypeScript",
       level: 95,
-      image: "/logos/programming/typescript.svg",
+      icon: TypeScriptIcon,
       category: "Frontend",
       description: "Desenvolvimento com tipagem estática e recursos modernos do JavaScript",
     },
     {
       name: "JavaScript",
       level: 95,
-      image: "/logos/programming/javascript.svg",
+      icon: JavaScriptIcon,
       category: "Frontend",
       description: "Domínio completo da linguagem e recursos avançados do ES6+",
     },
     {
       name: "React",
       level: 90,
-      image: "/logos/programming/react.svg",
+      icon: ReactIcon,
       category: "Frontend",
       description: "Desenvolvimento de interfaces modernas com componentes reutilizáveis",
     },
     {
       name: "Next.js",
       level: 90,
-      image: "/logos/programming/nextjs.svg",
-      imageBackground: "bg-white",
+      icon: NextJsIcon,
       category: "Frontend",
       description: "Aplicações web performáticas com renderização híbrida",
     },
     {
       name: "Node.js",
       level: 85,
-      image: "/logos/programming/nodejs.svg",
-      imageBackground: "bg-white",
+      icon: NodeJsIcon,
       category: "Backend",
       description: "Desenvolvimento de APIs e aplicações server-side",
     },
     {
       name: "Python",
       level: 80,
-      image: "/logos/programming/python.svg",
-      imageBackground: "bg-white",
+      icon: PythonIcon,
       category: "Backend",
       description: "Desenvolvimento de soluções backend e automação",
     },
@@ -119,20 +123,12 @@ export default function Skills() {
                           <CardContent className="p-6 h-full flex items-center">
                             <div className="flex items-center space-x-4 w-full">
                               <div
-                                className={`relative w-16 h-16 rounded-2xl overflow-hidden 
-                                           ${
-                                             skill.imageBackground ||
-                                             "bg-white/10"
-                                           } group-hover:scale-110 transition-transform duration-300
-                                           shadow-lg shadow-black/5`}
+                                className="relative w-16 h-16 rounded-2xl overflow-hidden 
+                                           flex items-center justify-center
+                                           group-hover:scale-110 transition-transform duration-300
+                                           shadow-lg shadow-black/5"
                               >
-                                <Image
-                                  src={skill.image}
-                                  alt={skill.name}
-                                  width={64}
-                                  height={64}
-                                  className="w-full h-full object-cover"
-                                />
+                                <skill.icon size={48} className="transition-transform duration-300 group-hover:scale-110" />
                               </div>
                               <div className="flex-grow min-w-0">
                                 <h3 className="text-lg font-medium text-white/90 mb-1 truncate">

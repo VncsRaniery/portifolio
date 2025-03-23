@@ -8,17 +8,17 @@ export default function Certificates() {
   const certificates = [
     {
       name: "Fundamentos para Desenvolvimento de Software por Microsoft e LinkedIn",
-      image: "/assets/placeholder.svg",
+      image: "/assets/certificados/Fundamentos-para-Desenvolvimento-de-Software.png",
       issuer: "Microsoft e LinkedIn"
     },
     {
       name: "Fundamentos para Análise de Dados por Microsoft e LinkedIn",
-      image: "/assets/placeholder.svg",
+      image: "/assets/certificados/Fundamentos-para-Análise-de-Dados.png",
       issuer: "Microsoft"
     },
     {
-      name: "Fundamentos para Desenvolvimento de Software por Microsoft e LinkedIn",
-      image: "/assets/placeholder.svg",
+      name: "Career Essentials in Generative AI by Microsoft and LinkedIn",
+      image: "/assets/certificados/Generative-AI.png",
       issuer: "Microsoft e LinkedIn"
     }
   ]
@@ -52,9 +52,9 @@ export default function Certificates() {
                   <Image 
                     src={cert.image} 
                     alt={cert.name} 
-                    width={300} 
-                    height={200} 
-                    className="w-full h-40 object-cover"
+                    width={800} 
+                    height={600} 
+                    className="w-full h-80 object-cover"
                   />
                 </div>
                 <div className="p-4">
