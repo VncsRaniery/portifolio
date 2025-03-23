@@ -138,23 +138,23 @@ export default function Projects() {
             ) : filteredRepos.length > 0 ? (
               filteredRepos.map((repo) => (
                 <motion.div key={repo.name} variants={itemVariants}>
-                  <Card className="bg-zinc-800/50 border-zinc-700/50 overflow-hidden group transform transition-all duration-300 hover:scale-[1.02]">
-                    <CardContent className="p-0">
-                      <div className="relative">
+                  <Card className="bg-zinc-800/50 border-zinc-700/50 overflow-hidden group transform transition-all duration-300 hover:scale-[1.02] h-[32rem] flex flex-col">
+                    <CardContent className="p-0 flex flex-col h-full">
+                      <div className="relative h-48 flex-shrink-0">
                         <Image
                           src={repo.imageUrl || "/placeholder.svg"}
                           alt={repo.name}
                           width={600}
                           height={300}
-                          className="w-full h-48 object-cover"
+                          className="w-full h-full object-cover"
                         />
                       </div>
-                      <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
-                        <div>
+                      <div className="p-4 sm:p-6 space-y-3 sm:space-y-4 flex flex-col flex-grow">
+                        <div className="flex-grow">
                           <h3 className="text-lg sm:text-xl font-semibold text-white/90 mb-1 sm:mb-2">
                             {repo.name}
                           </h3>
-                          <p className="text-sm text-white/70 mb-2 sm:mb-4">
+                          <p className="text-sm text-white/70 mb-2 sm:mb-4 line-clamp-3">
                             {repo.description}
                           </p>
                         </div>
@@ -171,7 +171,7 @@ export default function Projects() {
                           ))}
                         </div>
 
-                        <div className="flex items-center space-x-4 pt-3 sm:pt-4 border-t border-zinc-700/30">
+                        <div className="flex items-center space-x-4 pt-3 sm:pt-4 border-t border-zinc-700/30 mt-auto">
                           <div className="flex items-center space-x-1 sm:space-x-2 text-white/70">
                             <Star className="w-3 h-3 sm:w-4 sm:h-4" />
                             <span className="text-xs sm:text-sm">{repo.stargazersCount || 0}</span>
